@@ -28,8 +28,8 @@ def profile(request):
             messages.success(request, f'Your Account has been updated!')
             return redirect('profile')
     else:
-        u_form = UserUpdateForm(request.POST, instance=request.user)
-        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        u_form = UserUpdateForm()
+        p_form = ProfileUpdateForm()
 
     content = {
         'u_form': u_form,
