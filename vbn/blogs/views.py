@@ -12,6 +12,12 @@ def dashboard(request):
 def contact(request):
         return render(request, 'blogs/contact.html')
 
+def news(request):
+        return render(request, 'blogs/news.html')
+
+def video(request):
+        return render(request, 'blogs/video.html')
+
 def about(request):
     return render(request, 'blogs/about.html', {'title':'About'})
     
