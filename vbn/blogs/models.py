@@ -37,3 +37,11 @@ class News(models.Model):
 
     def __str__(self):
         return self.categories
+
+
+class Video(models.Model):
+    title = models.CharField(max_length=100)
+    categories = models.CharField(choices=CATEGORIES, default='Education', max_length=40)
+    content = models.FileField("content", upload_to='profile_pics', max_length=100)
+    date = models.DateTimeField(default=timezone.now)
+    #['video/x-msvideo', 'application/pdf', 'video/mp4', 'audio/mpeg', ]

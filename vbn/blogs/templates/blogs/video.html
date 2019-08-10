@@ -1,5 +1,15 @@
-{% extends 'blogs/base.html' %} {% block content %}
-<div class="container">
-
-</div>
-{% endblock %}
+{% extends 'blogs/base.html' %} {% block content %} {% for video in videos %}
+<article class="media content-section">
+    <div class="media-body">
+        <h3 class="article-title"><u>{{ video.title }}</u>
+        </h3>
+        <h4 class="article-title">{{ video.categories }}</h4>
+        <video controls controlsList="nodownload" poster="{{ object.thumbnai.url }}" src="{{ video.content }}" width="400" height="200">
+            Sorry. Your browser doesnot support embeded videos
+        </video>
+        <div class="article-metadata">
+            <small class="text-muted">{{ video.date|date:"F d, Y" }}</small>
+        </div>
+    </div>
+</article>
+{% endfor %} {% endblock %}

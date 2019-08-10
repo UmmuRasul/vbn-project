@@ -2,14 +2,15 @@
 <article class="media content-section">
     <div class="media-body">
         <img class="img-fluid img-thumbnail" src="{{ new.image.url }}">
-        <h2 class="article-title">{{ new.title }}</h2>
-        <h2 class="article-title">{{ new.categories }}</h2>
+        <h3 class="article-title"><u>{{ new.title }}</u>
+        </h3>
+        <h4 class="article-title">{{ new.categories }}</h4>
         <p class="article-content">{{ new.content }}</p>
         <div class="article-metadata">
             <small class="text-muted">{{ new.date|date:"F d, Y" }}</small>
-            <h2 class="article-title">Written by-{{ new.editor }}</h2>
+            <h6 class="article-title">Written by-{{ new.editor }}</h6>
         </div>
+        <button type="button" class="btn btn-outline-primary">read more</button>
     </div>
 </article>
-{% endfor %}
-<button type="button" class="btn btn-outline-primary">read more</button> {% endblock %}
+{% endfor %} {% endblock %}
