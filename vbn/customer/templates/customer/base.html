@@ -21,21 +21,21 @@
                     </button>
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <div class="navbar-nav mr-auto">
-                        <a class="nav-item nav-link" href="{% url 'blogs-dashboard' %}">Dashboard</a>
-                        <a class="nav-item nav-link" href="{% url 'blogs-about' %}">About</a>
+                         {% if user.is_authenticated %}
                         <a class="nav-item nav-link" href="{% url 'blogs-blogs'%}">Blogs</a>
                         <a class="nav-item nav-link" href="{% url 'blogs-news'%}">News</a>
                         <a class="nav-item nav-link" href="{% url 'blogs-video'%}">Videos</a>
+                        {% else %}
+                        <a class="nav-item nav-link" href="{% url 'blogs-dashboard' %}">Dashboard</a>
+                        <a class="nav-item nav-link" href="{% url 'blogs-about' %}">About</a>
+                        {% endif %}
                     </div>
                     <!-- Navbar Right Side -->
                     <div class="navbar-nav">
                         {% if user.is_authenticated %}
-                        <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
-                        <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
-                        <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a> {% else %}
-                        <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                        <a class="nav-item nav-link" href="{% url 'login-cus' %}">Login cus</a>
-                        <a class="nav-item nav-link" href="{% url 'register' %}">Register</a> {% endif %}
+                        <a class="nav-item nav-link" href="{% url 'logout-cus' %}">Logout</a> {% else %}
+                        <a class="nav-item nav-link" href="{% url 'login-cus' %}">Login</a>
+                        <a class="nav-item nav-link" href="{% url 'register-cus' %}">Register</a> {% endif %}
                     </div>
                 </div>
             </div>

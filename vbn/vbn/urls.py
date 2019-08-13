@@ -19,13 +19,17 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from users import views as user_views
+from customer import views as customer_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', user_views.register, name='register'),
+    path('register_cus/', customer_views.register_cus, name='register-cus'),
     path('profile/', user_views.profile, name='profile'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+    path('login_cus/', auth_views.LoginView.as_view(template_name='customer/login_cus.html'), name='login-cus'),
+    path('logout_cus/', auth_views.LogoutView.as_view(template_name='users/logout_cus.html'), name='logout-cus'),
     path('', include('blogs.urls')),
  ]
 

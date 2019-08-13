@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     #mine
     'blogs',
     'users',
+    'customer',
     'crispy_forms',
 ]
 
