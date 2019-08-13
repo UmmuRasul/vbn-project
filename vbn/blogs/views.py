@@ -9,6 +9,10 @@ def dashboard(request):
     return render(request, 'blogs/dashboard.html')
 
 
+def sub(request):
+        return render(request, 'blogs/sub.html')
+    
+
 def contact(request):
         return render(request, 'blogs/contact.html')
 
@@ -76,3 +80,10 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
                         return True
                 return False
         
+
+class NewsListView(ListView):
+        model = News
+        template_name = 'blogs/news.html'
+        context_object_name = 'news'
+        ordering = ['-date']
+        paginate_by = 1

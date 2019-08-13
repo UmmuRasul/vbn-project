@@ -9,7 +9,8 @@ CATEGORIES = [
     ('Health','health'),
     ('Education','edu'),
     ('Sports','sports'),
-    ('Politics','politics')
+    ('Politics','politics'),
+    ('Social','social')
 ]
 
 
