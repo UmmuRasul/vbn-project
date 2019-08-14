@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Post, News, Video
+from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 # Create your views here.
@@ -13,14 +14,13 @@ def sub(request):
         return render(request, 'blogs/sub.html')
     
 
-def contact(request):
-        return render(request, 'blogs/contact.html')
 
 def news(request):
         daily_news = {
                 'news':News.objects.all()
                 }
         return render(request, 'blogs/news.html', daily_news)
+
 
 def video(request):
         daily_videos = {
@@ -31,6 +31,7 @@ def video(request):
 def about(request):
     return render(request, 'blogs/about.html', {'title':'About'})
     
+
 def blogs(request):
     context = {
         'posts':Post.objects.all()

@@ -3,7 +3,7 @@ from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView,
 from . import views
 
 urlpatterns = [
-    path('', views.dashboard, name='blogs-dashboard'),
+    path('dashboard', views.dashboard, name='blogs-dashboard'),
     path('about/', views.about, name='blogs-about'),
     path('sub/', views.sub, name='blogs-sub'),
     path('news/',  NewsListView.as_view(), name='blogs-news'),

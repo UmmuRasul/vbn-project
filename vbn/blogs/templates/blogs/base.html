@@ -15,17 +15,14 @@
     <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
             <div class="container">
-                <a class="navbar-brand mr-4" href="{% url 'blogs-dashboard' %}">vbn</a>
+                <a class="navbar-brand mr-4" href="#">vbn</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     </button>
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <div class="navbar-nav mr-auto">
-                        <a class="nav-item nav-link" href="{% url 'blogs-dashboard' %}">Dashboard</a>
+                         <a class="nav-item nav-link" href="{% url 'blogs-dashboard' %}">Dashboard</a>
                         <a class="nav-item nav-link" href="{% url 'blogs-about' %}">About</a>
-                        <a class="nav-item nav-link" href="{% url 'blogs-blogs'%}">Blogs</a>
-                        <a class="nav-item nav-link" href="{% url 'blogs-news'%}">News</a>
-                        <a class="nav-item nav-link" href="{% url 'blogs-video'%}">Videos</a>
                     </div>
                     <!-- Navbar Right Side -->
                     <div class="navbar-nav">
@@ -34,7 +31,6 @@
                         <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
                         <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a> {% else %}
                         <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                        <a class="nav-item nav-link" href="{% url 'login-cus' %}">Login cus</a>
                         <a class="nav-item nav-link" href="{% url 'register' %}">Register</a> {% endif %}
                     </div>
                 </div>

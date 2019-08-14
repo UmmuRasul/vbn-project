@@ -1,0 +1,9 @@
+{% extends 'customer/base.html' %}
+{% block content %}
+<h2>You are loged out</h2>
+<div class="content-section">
+    <div class="border-top pt-3">
+        <small class="text-muted"><a href="{% url 'customer-login' %}">Login Again</a></small>
+    </div>
+</div>
+{% endblock content %}
