@@ -9,3 +9,8 @@ class UserCustomerRegister(UserCreationForm):
     class Meta:
         model = User
         fields = ['username','email', 'phone', 'password1', 'password2']
+
+
+class ContactUs(forms.Form):
+    email = forms.EmailField()
+    message = forms.CharField(widget=forms.Textarea)

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import UserCustomerRegister
+from django.http import HttpResponse
+from .forms import UserCustomerRegister, ContactUs
 
 # Create your views here.
 
@@ -19,3 +20,19 @@ def register_cus(request):
 
 def home_cus(request):
     return render(request,'customer/home_cus.html')
+
+
+
+def about_cus(request):
+    return render(request,'customer/about_cus.html')
+
+def contact_cus(request):
+    def contact_us(request):
+        if request.method == 'POST':
+            form = ContactUs(request.POST)
+            if form.is_valid():
+                # send email code goes here
+                return HttpResponse('Thanks for contacting us!')
+        else:
+            form = ContactUs()
+    return render(request, 'customer/contact_cus.html', {'form': form})
