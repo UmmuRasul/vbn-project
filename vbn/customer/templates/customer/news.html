@@ -1,18 +1,22 @@
-{% extends 'blogs/base.html' %} {% block content %} {% for post in posts %}
+{% extends 'customer/base.html' %} {% block content %} {% for new in news %}
 <article class="media content-section">
-    <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
     <div class="media-body">
+        <img class="img-fluid img-thumbnail" src="{{ new.image.url }}">
+        <h3 class="article-title"><u>{{ new.title }}</u>
+        </h3>
+        <h4 class="article-title">{{ new.categories }}</h4>
+        <p class="article-content">{{ new.content }}</p>
+        <button type="button" class="btn btn-outline-primary">read more</button>
         <div class="article-metadata">
-            <a class="mr-2" href="#">{{ post.author }}</a>
-            <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+            <small class="text-muted">{{ new.date|date:"F d, Y" }}</small>
+            <h6 class="article-title">Written by-{{ new.editor }}</h6>
         </div>
-        <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
-        <p class="article-content">{{ post.content }}</p>
-        <p class="article-content">{{ post.comments }}</p>
+        
     </div>
 </article>
-{% endfor %}
-  {% if is_paginated %}
+{% endfor %} 
+
+{% if is_paginated %}
     {% if page_obj.has_previous %}
       <a class="btn btn-outline-infor mb-4" href="?page=1">First</a>
       <a class="btn btn-outline-infor mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
@@ -32,4 +36,5 @@
     {% endif %}
 
   {% endif %}
-{% endblock content %}
+
+{% endblock %}

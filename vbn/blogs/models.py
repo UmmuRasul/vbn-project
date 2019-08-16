@@ -5,13 +5,6 @@ from django.urls import reverse
 
 # Create your models here.
 
-CATEGORIES = [
-    ('Health','health'),
-    ('Education','edu'),
-    ('Sports','sports'),
-    ('Politics','politics'),
-    ('Social','social')
-]
 
 
 class Post(models.Model):
@@ -26,23 +19,3 @@ class Post(models.Model):
     
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'pk':self.pk})
-
-
-class News(models.Model):
-    title = models.CharField(max_length=100)
-    categories = models.CharField(choices=CATEGORIES, default='Education', max_length=40)
-    image = models.ImageField(upload_to='profile_pics')
-    content = models.TextField()
-    date = models.DateTimeField(default=timezone.now)
-    editor = models.CharField(max_length=80)
-
-    def __str__(self):
-        return self.categories
-
-
-class Video(models.Model):
-    title = models.CharField(max_length=100)
-    categories = models.CharField(choices=CATEGORIES, default='Education', max_length=40)
-    content = models.FileField("content", upload_to='profile_pics', max_length=100)
-    date = models.DateTimeField(default=timezone.now)
-    #['video/x-msvideo', 'application/pdf', 'video/mp4', 'audio/mpeg', ]

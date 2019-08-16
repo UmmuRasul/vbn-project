@@ -1,12 +1,15 @@
-{% extends 'customer/base.html' %} {% block content %}
-<form method="POST" action>
-    {% csrf_token %}
-    <fieldset class="form-group">
-        <legend class="border-bottom mb-4">Contact Us</legend>
-        {{ form|crispy }}
-    </fieldset>
-    <div class="form-group">
-        <button type="submit" class="btn btn-outline-info">Send</button>
-    </div>
-</form>
+{% extends 'customer/base.html' %} {% load crispy_forms_tags %} {% block content %}
+<!-- <div class="content-section">
+    <form method="POST" action>
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Talk To Us</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button type="submit" class="btn btn-outline-info">Send</button>
+        </div>
+    </form>
+</div> -->
+<h2>The page</h2>
 {% endblock content %}

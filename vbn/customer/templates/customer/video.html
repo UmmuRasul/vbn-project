@@ -1,22 +1,18 @@
-{% extends 'blogs/base.html' %} {% block content %} {% for new in news %}
+{% extends 'customer/base.html' %}{% block content %} {% for video in videos %}
 <article class="media content-section">
     <div class="media-body">
-        <img class="img-fluid img-thumbnail" src="{{ new.image.url }}">
-        <h3 class="article-title"><u>{{ new.title }}</u>
+        <h3 class="article-title"><u>{{ video.title }}</u>
         </h3>
-        <h4 class="article-title">{{ new.categories }}</h4>
-        <p class="article-content">{{ new.content }}</p>
-        <button type="button" class="btn btn-outline-primary">read more</button>
+        <h4 class="article-title">{{ video.categories }}</h4>
+        <video controls controlsList="nodownload" poster="{{ object.thumbnai.url }}" src="{{ video.content.url }}" width="400" height="200">
+            Sorry. Your browser doesnot support embeded videos
+        </video>
         <div class="article-metadata">
-            <small class="text-muted">{{ new.date|date:"F d, Y" }}</small>
-            <h6 class="article-title">Written by-{{ new.editor }}</h6>
+            <small class="text-muted">{{ video.date|date:"F d, Y" }}</small>
         </div>
-        
     </div>
 </article>
-{% endfor %} 
-
-{% if is_paginated %}
+{% endfor %} {% if is_paginated %}
     {% if page_obj.has_previous %}
       <a class="btn btn-outline-infor mb-4" href="?page=1">First</a>
       <a class="btn btn-outline-infor mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
