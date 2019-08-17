@@ -12,15 +12,6 @@ from blogs.models import Post
 # Create your views here.
 
 
-CATEGORIES = [
-    ('Health','health'),
-    ('Education','edu'),
-    ('Sports','sports'),
-    ('Politics','politics'),
-    ('Social','social')
-]
-
-
 def register_cus(request):
     if request.method == 'POST':
         form = UserCustomerRegister(request.POST)
