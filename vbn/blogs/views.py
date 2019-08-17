@@ -9,6 +9,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 def dashboard(request):
     return render(request, 'blogs/dashboard.html')
 
+def blogs_sub(request):
+    return render(request, 'blogs/blogs_sub.html')
+
 class PostDetailView(DetailView):
         model = Post
 
