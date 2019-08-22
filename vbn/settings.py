@@ -83,12 +83,16 @@ WSGI_APPLICATION = 'vbn.wsgi.application'
 DATABASES = {
 	'default':{
 	    'ENGINE':'django.db.backends.postgresql',
-	    'NAME': 'vbn',
+	    'NAME': 'videoblogs',
 	    'USER': 'postgres',
 	    'PASSWORD': 'ummu123',
 	    'HOST': 'localhost'
 }
 }
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+DATABASES['default']['CONN_MAX_AGE'] = 500
 
 
 # Password validation
@@ -115,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'africa/nairobi'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
@@ -137,9 +141,10 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+
 CRISPY_TEMPLATE_PARK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'blogs-dashboard'
 LOGIN_URL = 'login'
 
-django_heroku.settings(locals())
+
