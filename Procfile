@@ -1,0 +1,1 @@
+web: gunicorn vbn.wsgi --log-file -

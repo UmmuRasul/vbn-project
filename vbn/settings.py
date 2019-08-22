@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +26,7 @@ SECRET_KEY = 'lch4(!+cp&ee39_p9%30+p9zsizct07))gaw^=i1h#s(e2mj&v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -114,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'africa/nairobi'
 
 USE_I18N = True
 
@@ -140,3 +141,5 @@ CRISPY_TEMPLATE_PARK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'blogs-dashboard'
 LOGIN_URL = 'login'
+
+django_heroku.settings(locals())
